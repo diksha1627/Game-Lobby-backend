@@ -27,93 +27,92 @@ To stop the Docker container, run: `npm run docker-down`
 
 ### Example Queries to run
 
-# mutation CreateUser($username:String!){
-#   createUser(username: $username) {
-#     id,
-#     username
-#   }
-# }
+### mutation CreateUser($username:String!){
+###   createUser(username: $username) {
+###     id,
+###     username
+###   }
+### }
 
-# query GetUsers{
-#   getUsers{
-#     id
-#     username
-#   }
-# }
+### query GetUsers{
+###   getUsers{
+###     id
+###     username
+###   }
+### }
 
-# mutation CreateTournament($creatorUserId: ID!){
-#    createTournament(creatorUserId: $creatorUserId) {
-#      roomId,
-#      creatorUserId
-#    }
-# }
+### mutation CreateTournament($creatorUserId: ID!){
+###    createTournament(creatorUserId: $creatorUserId) {
+###      roomId,
+###      creatorUserId
+###    }
+### }
 
-# query GetTournaments{
-#   getTournaments {
-#     creatorName,
-#     roomId,
-#     participants{
-#       userId,
-#       username,
-#       isAdmin
-#     },
-#     settings,
-#     creatorUserId
-#   }
-# }
+### query GetTournaments{
+###   getTournaments {
+###     creatorName,
+###     roomId,
+###     participants{
+###       userId,
+###       username,
+###       isAdmin
+###     },
+###     settings,
+###     creatorUserId
+###   }
+### }
 
+##
+##
+### mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
+###   joinTournament(roomId:$roomId,userId:$userId,username:$username) {
+###     roomId,
+###   }
+### }
 
+### mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
+###   updateTournament(roomId: $roomId, settings: $settings, participants: $participants) {
+###     id
+###     roomId
+###     settings
+###     participants{
+###       userId,
+###       username
+###     }
+###   }
+### }
 
-# mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
-#   joinTournament(roomId:$roomId,userId:$userId,username:$username) {
-#     roomId,
-#   }
-# }
+### subscription {
+###   tournamentUpdated(roomId: "cc16") {
+###     id
+###     roomId
+###     settings
+###     participants {
+###       userId
+###       username
+###     }
+###   }
+### }
 
-# mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
-#   updateTournament(roomId: $roomId, settings: $settings, participants: $participants) {
-#     id
-#     roomId
-#     settings
-#     participants{
-#       userId,
-#       username
-#     }
-#   }
-# }
+### query GetTournament($roomName:String!) {
+###   getTournament(roomId:$roomName) {
+###     id
+###     roomId
+###     creatorUserId
+###     creatorName
+###     settings
+###     participants {
+###       id
+###       userId
+###       username
+###       isAdmin
+###     }
+###   }
+### }
 
-
-# subscription {
-#   tournamentUpdated(roomId: "cc16") {
-#     id
-#     roomId
-#     settings
-#     participants {
-#       userId
-#       username
-#     }
-#   }
-# }
-
-# query GetTournament($roomName:String!) {
-#   getTournament(roomId:$roomName) {
-#     id
-#     roomId
-#     creatorUserId
-#     creatorName
-#     settings
-#     participants {
-#       id
-#       userId
-#       username
-#       isAdmin
-#     }
-#   }
-# }
-
-  # mutation DeleteTournament($roomId: String!) {
-  #   deleteTournament(roomId: $roomId)
-  # }
+### mutation DeleteTournament($roomId: String!) {
+###   deleteTournament(roomId: $roomId)
+### }
 
 
 
