@@ -27,7 +27,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 ##### Example Queries to run
 
-##### mutation CreateUser($username:String!){
+##### 1. mutation CreateUser($username:String!){
 #####   createUser(username: $username) {
 #####     id,
 #####     username
@@ -37,7 +37,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### query GetUsers{
+##### 2. query GetUsers{
 #####   getUsers{
 #####     id
 #####     username
@@ -47,7 +47,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### mutation CreateTournament($creatorUserId: ID!){
+##### 3. mutation CreateTournament($creatorUserId: ID!){
 #####    createTournament(creatorUserId: $creatorUserId) {
 #####      roomId,
 #####      creatorUserId
@@ -57,7 +57,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### query GetTournaments{
+##### 4. query GetTournaments{
 #####   getTournaments {
 #####     creatorName,
 #####     roomId,
@@ -74,7 +74,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
+##### 5. mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
 #####   joinTournament(roomId:$roomId,userId:$userId,username:$username) {
 #####     roomId,
 #####   }
@@ -83,7 +83,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
+##### 6. mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
 #####   updateTournament(roomId: $roomId, settings: $settings, participants: $participants) {
 #####     id
 #####     roomId
@@ -98,7 +98,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### subscription {
+##### 7. subscription {
 #####   tournamentUpdated(roomId: "cc16") {
 #####     id
 #####     roomId
@@ -113,7 +113,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### query GetTournament($roomName:String!) {
+##### 8. query GetTournament($roomName:String!) {
 #####   getTournament(roomId:$roomName) {
 #####     id
 #####     roomId
@@ -132,7 +132,7 @@ To stop the Docker container, run: `npm run docker-down`
 
 
 
-##### mutation DeleteTournament($roomId: String!) {
+##### 9. mutation DeleteTournament($roomId: String!) {
 #####   deleteTournament(roomId: $roomId)
 ##### }
 
