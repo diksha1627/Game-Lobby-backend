@@ -9,7 +9,7 @@ module.exports = {
   Mutation: {
     createTournament: async (_, { creatorUserId }) => {
       const randomRoomNumber = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
-      const roomId = `${uuidv4().split('-')[0]}${randomRoomNumber}`;
+      const roomId = randomRoomNumber;
       const creatorUser = await User.findById(creatorUserId);
 
       if (!creatorUser) {

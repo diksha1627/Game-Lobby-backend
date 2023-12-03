@@ -11,6 +11,7 @@ const resolvers = require('./graphql/resolvers');
 
 const MONGODB = "mongodb://diksha:Alpha113.@ac-gzpeqd8-shard-00-00.zpie1go.mongodb.net:27017,ac-gzpeqd8-shard-00-01.zpie1go.mongodb.net:27017,ac-gzpeqd8-shard-00-02.zpie1go.mongodb.net:27017/?ssl=true&replicaSet=atlas-mkgko1-shard-0&authSource=admin&retryWrites=true&w=majority"; // Your MongoDB connection string
 
+
 const pubsub = new PubSub();
 
 async function startApolloServer() {
@@ -36,11 +37,11 @@ async function startApolloServer() {
     .then(() => {
       console.log("MongoDB Connected");
 
-      const subscriptionServer = SubscriptionServer.create(
+      SubscriptionServer.create(
         {
-          schema: server.schema,
           execute,
           subscribe,
+          schema: server.schema, // Provide the GraphQL schema
         },
         {
           server: httpServer,
