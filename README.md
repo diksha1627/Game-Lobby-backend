@@ -25,94 +25,116 @@ To stop the Docker container, run: `npm run docker-down`
 3. Access Apollo Server at: http://localhost:4000/graphql
 
 
-### Example Queries to run
+##### Example Queries to run
 
-### mutation CreateUser($username:String!){
-###   createUser(username: $username) {
-###     id,
-###     username
-###   }
-### }
+##### mutation CreateUser($username:String!){
+#####   createUser(username: $username) {
+#####     id,
+#####     username
+#####   }
+##### }
 
-### query GetUsers{
-###   getUsers{
-###     id
-###     username
-###   }
-### }
 
-### mutation CreateTournament($creatorUserId: ID!){
-###    createTournament(creatorUserId: $creatorUserId) {
-###      roomId,
-###      creatorUserId
-###    }
-### }
 
-### query GetTournaments{
-###   getTournaments {
-###     creatorName,
-###     roomId,
-###     participants{
-###       userId,
-###       username,
-###       isAdmin
-###     },
-###     settings,
-###     creatorUserId
-###   }
-### }
 
-##
-##
-### mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
-###   joinTournament(roomId:$roomId,userId:$userId,username:$username) {
-###     roomId,
-###   }
-### }
+##### query GetUsers{
+#####   getUsers{
+#####     id
+#####     username
+#####   }
+##### }
 
-### mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
-###   updateTournament(roomId: $roomId, settings: $settings, participants: $participants) {
-###     id
-###     roomId
-###     settings
-###     participants{
-###       userId,
-###       username
-###     }
-###   }
-### }
 
-### subscription {
-###   tournamentUpdated(roomId: "cc16") {
-###     id
-###     roomId
-###     settings
-###     participants {
-###       userId
-###       username
-###     }
-###   }
-### }
 
-### query GetTournament($roomName:String!) {
-###   getTournament(roomId:$roomName) {
-###     id
-###     roomId
-###     creatorUserId
-###     creatorName
-###     settings
-###     participants {
-###       id
-###       userId
-###       username
-###       isAdmin
-###     }
-###   }
-### }
 
-### mutation DeleteTournament($roomId: String!) {
-###   deleteTournament(roomId: $roomId)
-### }
+##### mutation CreateTournament($creatorUserId: ID!){
+#####    createTournament(creatorUserId: $creatorUserId) {
+#####      roomId,
+#####      creatorUserId
+#####    }
+##### }
+
+
+
+
+##### query GetTournaments{
+#####   getTournaments {
+#####     creatorName,
+#####     roomId,
+#####     participants{
+#####       userId,
+#####       username,
+#####       isAdmin
+#####     },
+#####     settings,
+#####     creatorUserId
+#####   }
+##### }
+
+
+
+
+##### mutation JoinTournament($roomId: String!,$userId:ID!,$username:String!){
+#####   joinTournament(roomId:$roomId,userId:$userId,username:$username) {
+#####     roomId,
+#####   }
+##### }
+
+
+
+
+##### mutation UpdateTournament($roomId: String!, $settings: String, $participants: [String]) {
+#####   updateTournament(roomId: $roomId, settings: $settings, participants: $participants) {
+#####     id
+#####     roomId
+#####     settings
+#####     participants{
+#####       userId,
+#####       username
+#####     }
+#####   }
+##### }
+
+
+
+
+##### subscription {
+#####   tournamentUpdated(roomId: "cc16") {
+#####     id
+#####     roomId
+#####     settings
+#####     participants {
+#####       userId
+#####       username
+#####     }
+#####   }
+##### }
+
+
+
+
+##### query GetTournament($roomName:String!) {
+#####   getTournament(roomId:$roomName) {
+#####     id
+#####     roomId
+#####     creatorUserId
+#####     creatorName
+#####     settings
+#####     participants {
+#####       id
+#####       userId
+#####       username
+#####       isAdmin
+#####     }
+#####   }
+##### }
+
+
+
+
+##### mutation DeleteTournament($roomId: String!) {
+#####   deleteTournament(roomId: $roomId)
+##### }
 
 
 
